@@ -7,24 +7,25 @@
 
 	<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" type="text/css">
+
 		<link rel="stylesheet" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 
 		<title>Ajay - Portfolio</title>
-		
+
   </head>
 
-  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-  
+  <body id="page-top" data-spy="scroll" data-target=".sticky-top">
+
 	<!-- Navigation Starts Here -->
-		
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<a class="navbar-brand" href="#">Ajay</a>
-		  
+
 		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  
+
 			<span class="navbar-toggler-icon"></span>
 		 </button>
 
@@ -51,7 +52,7 @@
 		<li class="nav-item">
 			<a class="nav-link" href="#">Contact</a>
 		</li>
-	 
+
 		</ul>
 	</div>
 </nav>
@@ -65,31 +66,177 @@
 				<div class="intro-text">
 				<h1>Hello, I'm <span class="name">Ajay Sreedhar</span></h1>
 				<p>Incident Manager & Front End Developer</p>
-				<a href="#" class="btn btn-outline-light btn-lg page-scroll">Learn More</a> 
+				<a href="#" class="btn btn-outline-light btn-lg page-scroll">Learn More</a>
 				</div>
 			</div>
 			</div>
 	</div>
 </header>
 
+<!-- About section starts -->
 <div id="about">
 	<div class="container">
 		<h2 class="text-center">About Me</h2>
 		<hr>
-		
+
 		<p><img class="rounded-circle img-fluid d-block mx-auto" src="profile.jpg" alt="My Photo"></p>
 		<div class="aboutText text-center font-italic mx-auto d-block">
 		<p>I started working as an Incident Manager at HCL Technologies Chennai and after that jumped to Bengaluru and currenly
 		working in CSS Corp as a NOC engineer.</p>
 		<p>I started building websites as a passion and now completed my Angular course and moving forward at full pace to be a Front End developer.  Stay Tuned with my projects, it is just gonna increase.</p>
 		</div>
-		 <p class="text-center"><a class="btn btn-dark" href="#"><i class="fa fa-download"></i> Download Resume</a></p>s
+		 <p class="text-center"><a class="btn btn-primary" href="#"><i class="fas fa-download"></i> Download Resume</a></p>
 	</div>
 </div>
+
+<!-- Skills section starts -->
+
+<div id="skills" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Skills</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="95"> <span class="percent">95</span> </span>
+        <h4>HTML5</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="85"> <span class="percent">85</span> </span>
+        <h4>CSS3</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
+        <h4>jQuery</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
+        <h4>WordPress</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="70"> <span class="percent">70</span> </span>
+        <h4>Photoshop</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="65"> <span class="percent">65</span> </span>
+        <h4>Illustrator</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- My work section strating -->
+
+<div id="mywork">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>My Work</h2>
+      <hr>
+    </div>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- Contact Section -->
+
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Contact</h2>
+      <hr>
+    </div>
+    <div class="col-md-12 col-md-offset-2">
+      <div class="col-md-4"> <i class="fa fa-map-marker fa-2x"></i>
+        <p>4321 California St,<br>
+          San Francisco, CA 12345</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-envelope-o fa-2x"></i>
+        <p>info@company.com</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-phone fa-2x"></i>
+        <p> +1 123 456 1234</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Leave me a message</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-default">Send Message</button>
+      </form>
+      <div class="social">
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container text-center">
+    <div class="fnav">
+      <p>Copyright &copy; 2016 John Doe. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+    </div>
+  </div>
+</div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   </body>
 </html>
