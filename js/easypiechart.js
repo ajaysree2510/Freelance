@@ -1,23 +1,28 @@
 /**!
- * easyPieChart
+ * easy-pie-chart
  * Lightweight plugin to render simple, animated and retina optimized pie charts
  *
- * @license Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ * @license 
  * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
- * @version 2.1.1
+ * @version 2.1.7
  **/
 
-(function(root, factory) {
-    if(typeof exports === 'object') {
-        module.exports = factory(require('jquery'));
-    }
-    else if(typeof define === 'function' && define.amd) {
-        define('EasyPieChart', ['jquery'], factory);
-    }
-    else {
-        factory(root.jQuery);
-    }
-}(this, function($) {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module unless amdModuleId is set
+    define(["jquery"], function (a0) {
+      return (factory(a0));
+    });
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory(require("jquery"));
+  } else {
+    factory(jQuery);
+  }
+}(this, function ($) {
+
 /**
  * Renderer to render the chart on a canvas object
  * @param {DOMElement} el      DOM element to host the canvas (root of the plugin)
@@ -27,15 +32,15 @@ var CanvasRenderer = function(el, options) {
 	var cachedBackground;
 	var canvas = document.createElement('canvas');
 
-	if (typeof(G_vmlCanvasManager) !== 'undefined') {
+	el.appendChild(canvas);
+
+	if (typeof(G_vmlCanvasManager) === 'object') {
 		G_vmlCanvasManager.initElement(canvas);
 	}
 
 	var ctx = canvas.getContext('2d');
 
 	canvas.width = canvas.height = options.size;
-
-	el.appendChild(canvas);
 
 	// canvas on retina devices
 	var scaleBy = 1;
@@ -64,15 +69,16 @@ var CanvasRenderer = function(el, options) {
 
 	/**
 	 * Draw a circle around the center of the canvas
-	 * @param  {strong} color     Valid CSS color string
-	 * @param  {number} lineWidth Width of the line in px
-	 * @param  {number} percent   Percentage to draw (float between 0 and 1)
+	 * @param {strong} color     Valid CSS color string
+	 * @param {number} lineWidth Width of the line in px
+	 * @param {number} percent   Percentage to draw (float between -1 and 1)
 	 */
 	var drawCircle = function(color, lineWidth, percent) {
-		percent = Math.min(Math.max(0, percent || 1), 1);
+		percent = Math.min(Math.max(-1, percent || 0), 1);
+		var isNegative = percent <= 0 ? true : false;
 
 		ctx.beginPath();
-		ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+		ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, isNegative);
 
 		ctx.strokeStyle = color;
 		ctx.lineWidth = lineWidth;
@@ -86,18 +92,17 @@ var CanvasRenderer = function(el, options) {
 	var drawScale = function() {
 		var offset;
 		var length;
-		var i = 24;
 
-		ctx.lineWidth = 1
+		ctx.lineWidth = 1;
 		ctx.fillStyle = options.scaleColor;
 
 		ctx.save();
 		for (var i = 24; i > 0; --i) {
-			if (i%6 === 0) {
+			if (i % 6 === 0) {
 				length = options.scaleLength;
 				offset = 0;
 			} else {
-				length = options.scaleLength * .6;
+				length = options.scaleLength * 0.6;
 				offset = options.scaleLength - length;
 			}
 			ctx.fillRect(-options.size/2 + offset, 0, length, 1);
@@ -123,9 +128,23 @@ var CanvasRenderer = function(el, options) {
 	 * Draw the background of the plugin including the scale and the track
 	 */
 	var drawBackground = function() {
-		options.scaleColor && drawScale();
-		options.trackColor && drawCircle(options.trackColor, options.lineWidth);
+		if(options.scaleColor) drawScale();
+		if(options.trackColor) drawCircle(options.trackColor, options.trackWidth || options.lineWidth, 1);
 	};
+
+  /**
+    * Canvas accessor
+   */
+  this.getCanvas = function() {
+    return canvas;
+  };
+
+  /**
+    * Canvas 2D context 'ctx' accessor
+   */
+  this.getCtx = function() {
+    return ctx;
+  };
 
 	/**
 	 * Clear the complete canvas
@@ -136,7 +155,7 @@ var CanvasRenderer = function(el, options) {
 
 	/**
 	 * Draw the complete chart
-	 * @param  {number} percent Percent shown by the chart between 0 and 100
+	 * @param {number} percent Percent shown by the chart between -100 and 100
 	 */
 	this.draw = function(percent) {
 		// do we need to render a background
@@ -168,25 +187,23 @@ var CanvasRenderer = function(el, options) {
 		}
 
 		// draw bar
-		if (percent > 0) {
-			drawCircle(color, options.lineWidth, percent / 100);
-		}
+		drawCircle(color, options.lineWidth, percent / 100);
 	}.bind(this);
 
 	/**
 	 * Animate from some percent to some other percentage
-	 * @param  {number} from Starting percentage
-	 * @param  {number} to   Final percentage
+	 * @param {number} from Starting percentage
+	 * @param {number} to   Final percentage
 	 */
 	this.animate = function(from, to) {
 		var startTime = Date.now();
 		options.onStart(from, to);
 		var animation = function() {
-			var process = Math.min(Date.now() - startTime, options.animate);
-			var currentValue = options.easing(this, process, from, to - from, options.animate);
+			var process = Math.min(Date.now() - startTime, options.animate.duration);
+			var currentValue = options.easing(this, process, from, to - from, options.animate.duration);
 			this.draw(currentValue);
 			options.onStep(from, to, currentValue);
-			if (process >= options.animate) {
+			if (process >= options.animate.duration) {
 				options.onStop(from, to);
 			} else {
 				reqAnimationFrame(animation);
@@ -199,15 +216,19 @@ var CanvasRenderer = function(el, options) {
 
 var EasyPieChart = function(el, opts) {
 	var defaultOptions = {
-		barColor: '#121d1f',
-		trackColor: '#fff',
-		scaleColor: '#fff',
-		scaleLength: 0,
-		lineCap: 'square',
-		lineWidth: 7,
-		size: 152,
+		barColor: '#ef1e25',
+		trackColor: '#f9f9f9',
+		scaleColor: '#dfe0e0',
+		scaleLength: 5,
+		lineCap: 'round',
+		lineWidth: 3,
+		trackWidth: undefined,
+		size: 110,
 		rotate: 0,
-		animate: 1000,
+		animate: {
+			duration: 1000,
+			enabled: true
+		},
 		easing: function (x, t, b, c, d) { // more can be found here: http://gsgd.co.uk/sandbox/jquery/easing/
 			t = t / (d/2);
 			if (t < 1) {
@@ -262,6 +283,21 @@ var EasyPieChart = function(el, opts) {
 			options.easing = defaultOptions.easing;
 		}
 
+		// process earlier animate option to avoid bc breaks
+		if (typeof(options.animate) === 'number') {
+			options.animate = {
+				duration: options.animate,
+				enabled: true
+			};
+		}
+
+		if (typeof(options.animate) === 'boolean' && !options.animate) {
+			options.animate = {
+				duration: 1000,
+				enabled: options.animate
+			};
+		}
+
 		// create renderer
 		this.renderer = new options.renderer(el, options);
 
@@ -283,7 +319,7 @@ var EasyPieChart = function(el, opts) {
 	 */
 	this.update = function(newValue) {
 		newValue = parseFloat(newValue);
-		if (options.animate) {
+		if (options.animate.enabled) {
 			this.renderer.animate(currentValue, newValue);
 		} else {
 			this.renderer.draw(newValue);
@@ -292,15 +328,37 @@ var EasyPieChart = function(el, opts) {
 		return this;
 	}.bind(this);
 
+	/**
+	 * Disable animation
+	 * @return {object} Instance of the plugin for method chaining
+	 */
+	this.disableAnimation = function() {
+		options.animate.enabled = false;
+		return this;
+	};
+
+	/**
+	 * Enable animation
+	 * @return {object} Instance of the plugin for method chaining
+	 */
+	this.enableAnimation = function() {
+		options.animate.enabled = true;
+		return this;
+	};
+
 	init();
 };
 
 $.fn.easyPieChart = function(options) {
 	return this.each(function() {
+		var instanceOptions;
+
 		if (!$.data(this, 'easyPieChart')) {
-			$.data(this, 'easyPieChart', new EasyPieChart(this, options));
+			instanceOptions = $.extend({}, options, $(this).data());
+			$.data(this, 'easyPieChart', new EasyPieChart(this, instanceOptions));
 		}
 	});
 };
+
 
 }));

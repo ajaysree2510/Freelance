@@ -101,6 +101,24 @@ p.intro {
 	font-size: 15px;
 	margin-right: 10px;
 }
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
 /* Body Section starts */
 
 #about{
@@ -139,6 +157,10 @@ p.intro {
 	font-weight: 600;
 	color: #fff;
 }
+
+#skills .section-title{
+	padding:0px 0px 30px;
+}
 .chart {
 	position: relative;
 	display: inline-block;
@@ -146,6 +168,11 @@ p.intro {
 	height: 152px;
 	margin-bottom: 26px;
 	text-align: center;
+	transition: transform 1.5s
+}
+
+.chart:hover{
+	transform:scale(1.2);
 }
 .chart canvas {
 	position: absolute;
@@ -165,6 +192,92 @@ p.intro {
 	font-size: .8em;
 }
 
+/* Achevement section */
+
+
+#achieve .container{
+		width:2000px;
+	overflow:hidden;
+	background:black;
+	margin:50px auto;
+	
+}
+
+.photobanner {
+
+ height: 333px;
+ width: 3550px;
+ margin-top: 80px;
+ 
+}
+
+.photobanner img {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+
+/*keyframe animations*/
+.first {
+ -webkit-animation: bannermove 30s linear infinite;
+    -moz-animation: bannermove 30s linear infinite;
+     -ms-animation: bannermove 30s linear infinite;
+      -o-animation: bannermove 30s linear infinite;
+         animation: bannermove 30s linear infinite;
+}
+ 
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -2125px;
+ }
+ 
+}
+ 
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
 /* My work styles */
 
 #mywork {
@@ -172,9 +285,39 @@ p.intro {
 	background: #;
 }
 
+.card{
+	transition:transform 2s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-img-top{
+	border:1px solid rgba(0,0,0,0.125);
+	padding:0;
+	background-size:stretch;
+	
+}
+
+.card:hover{
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform:scale(1.030);
+}
+.card-footer{
+	transition:2s;
+}
+
+.card-footer:hover{
+	border: 1px solid #7bc3d1;
+	
+}
+
 /* Contact footer section */
 
 /* Contact Section */
+
+.col-md-4{
+	
+	padding:50px 0;
+}
 #contact {
 	padding: 100px 0 40px 0;
 	color: #121d1f;
@@ -195,9 +338,10 @@ p.intro {
 #contact form {
 	padding: 30px 0;
 }
-#contact i.fa {
+#contact i.fas, far {
 	color: #121d1f;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	font-size: 30px;
 }
 #contact .text-danger {
 	color: #E87E04;
@@ -251,13 +395,13 @@ color: #2c3e50;
 	display: inline-block;
 	margin: 0 20px;
 }
-#contact .social i.fa {
-	font-size: 30px;
+#contact .social i.fab {
+	font-size: 20px;
 	padding: 4px 5px;
 	color: #fff;
 	transition: all 0.5s;
 }
-#contact .social i.fa:hover {
+#contact .social i.fab:hover {
 	color: #121d1f;
 }
 #contact .btn {
@@ -297,6 +441,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 #footer a:hover {
 	color: #7bc3d1;
 }
+
 
 /* ======================================================================================================*/
 
