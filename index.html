@@ -17,11 +17,12 @@
 
   </head>
 
-  <body id="page-top" data-spy="scroll" data-target=".sticky-top">
+  <body id="page-top" data-spy="scroll" data-target=".fixed-top">
 
 	<!-- Navigation Starts Here -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
 		<a class="navbar-brand" href="#">Ajay</a>
 
 		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -158,7 +159,7 @@
     <img class="card-img-top" src="asset/bfresh.jpg" alt="Bfresh website">
     <div class="card-body">
       <h5 class="card-title">BFresh - Catering services</h5>
-      <p class="card-text">This is a basic landing page website built for client with catering services. This uses Google forms 
+      <p class="card-text">This is a basic landing page website built for client with catering services. This uses Google forms
 	  in contact section, which sends data directly to owners Gmail account.</p>
 	  <br>
 	  <p>Technologies used: HTML, CSS, Bootstrap, Google Forms</p>
@@ -218,27 +219,27 @@
     </div>
     <div class="col-md-8 offset-md-2">
       <h3>Leave me a message</h3>
-      <form name="sentMessage" id="contactForm" novalidate>
+      <form name="sendMessage" id="contactForm" method="post" action="contactForm.php" novalidate>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <input type="text" name="name" class="form-control" placeholder="Name" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <input type="email" name="email" class="form-control" placeholder="Email" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <textarea name="message" class="form-control" rows="4" placeholder="Message" required></textarea>
           <p class="help-block text-danger"></p>
         </div>
         <div id="success"></div>
-        <button type="submit" class="btn btn-default">Send Message</button>
+        <button type="submit" name="submit" class="btn btn-default">Send Message</button>
       </form>
       <div class="social">
         <ul>
@@ -256,7 +257,7 @@
 <div id="footer">
   <div class="container text-center">
     <div class="fnav">
-      <p>Copyright &copy; 2016 John Doe. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+      <p>Copyright &copy; Designed by Ajay Sreedhar</p>
     </div>
   </div>
 </div>
@@ -266,7 +267,7 @@
 	<script src="js/easypiechart.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	
+
 	<script>
     $(function() {
         $('.chart').easyPieChart({
