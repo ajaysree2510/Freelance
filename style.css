@@ -404,7 +404,8 @@ header .intro-text {
 	width: 100%;
 	max-width: 300px;
 	margin: 20px;
-	
+	padding: 5px;
+
 }
 
 .myImg:hover {opacity: 0.7;}
@@ -475,8 +476,12 @@ header .intro-text {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
+@media only screen and (max-width: 700px) {
+	.modal-content {
     width: 100%;
-  }
+}
+	.close{
+		top:50px;
+		right:10px;
+	}
 }

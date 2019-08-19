@@ -65,8 +65,8 @@
 			<div class="container">
 			<div class="row">
 				<div class="intro-text">
-				<h1 data-aos="fade-right">Hello, I'm <span class="name">Ajay Sreedhar</span></h1>
-				<p data-aos="fade-left">Incident Manager & Front End Developer</p>
+				<h1 data-aos="fade-down">Hello, I'm <span class="name">Ajay Sreedhar</span></h1>
+				<p data-aos="flip-left">Incident Manager & Front End Developer</p>
 				<a href="#about" class="btn btn-outline-light btn-lg">Learn More</a>
 				</div>
 			</div>
@@ -77,13 +77,13 @@
 <!-- About section starts -->
 <div id="about" class="text-center section">
 	<div class="container">
-    <div class="section-title center">
+    <div class=" center">
 		<h2 data-aos="fade-down">About Me</h2>
 		<hr>
   </div>
 		<p data-aos="flip-left"><img class="rounded-circle img-fluid d-block mx-auto" src="asset/pofimg.jpg" alt="My Photo"></p>
 		<div class="aboutText text-center font-italic mx-auto d-block">
-		<p data-aos="fade-left">I started working as an Incident Manager at HCL Technologies Chennai and after that jumped to Bengaluru and currenly
+		<p data-aos="fade-up">I started working as an Incident Manager at HCL Technologies Chennai and after that jumped to Bengaluru and currenly
 		working in CSS Corp as a NOC engineer.</p>
 		<p data-aos="fade-down">I started building websites as a passion and now completed my Angular course and moving forward at full pace to be a Front End developer.  Stay Tuned with my projects, it is just gonna increase.</p>
 		</div>
@@ -95,27 +95,27 @@
 
 <div id="skills" class="text-center section">
   <div class="container">
-    <div class="section-title center">
+    <div class="center">
       <h2 data-aos="fade-down">Skills</h2>
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-4 col-sm-6 skill" data-aos="fade-right"> <span class="chart" data-percent="95"> <span class="percent">95</span> </span>
+      <div class="col-md-4 col-sm-6 skill" data-aos="fade-down"> <span class="chart" data-percent="95"> <span class="percent">95</span> </span>
         <h4>HTML5</h4>
       </div>
       <div class="col-md-4 col-sm-6 skill" data-aos="fade-down"> <span class="chart" data-percent="85"> <span class="percent">85</span> </span>
         <h4>CSS3</h4>
       </div>
-      <div class="col-md-4 col-sm-6 skill " data-aos="fade-left"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
+      <div class="col-md-4 col-sm-6 skill " data-aos="fade-down"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
         <h4>JavaScript</h4>
       </div>
-      <div class="col-md-4 col-sm-6 skill" data-aos="fade-right"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
+      <div class="col-md-4 col-sm-6 skill" data-aos="fade-down"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
         <h4>Angular</h4>
       </div>
-      <div class="col-md-4 col-sm-6 skill" data-aos="fade-up"> <span class="chart" data-percent="70"> <span class="percent">70</span> </span>
+      <div class="col-md-4 col-sm-6 skill" data-aos="fade-down"> <span class="chart" data-percent="70"> <span class="percent">70</span> </span>
         <h4>Bootstrap</h4>
       </div>
-      <div class="col-md-4 col-sm-6 skill" data-aos="fade-left"> <span class="chart" data-percent="65"> <span class="percent">65</span> </span>
+      <div class="col-md-4 col-sm-6 skill" data-aos="fade-down"> <span class="chart" data-percent="65"> <span class="percent">65</span> </span>
         <h4>Photoshop</h4>
       </div>
     </div>
@@ -126,15 +126,15 @@
 
 <div id="achieve" class="text-center section">
   <div class="container">
-    <div class="section-title center">
+    <div class=" center">
       <h2 data-aos="fade-down">Achievements</h2>
       <hr>
     </div>
 
       <!-- Trigger the Modal -->
-      <img id="myImg" class="myImg" src="asset/cert1.jpg" alt="HCL Appreciation Certificate"  onclick="popupImage(myImg);">
-      <img id="myImg1" class="myImg" src="asset/cert2.jpg" alt="HCL Aprecation Certificate"  onclick="popupImage(myImg1);">
-      <img id="myImg2" class="myImg" src="asset/e-cert.jpg" alt="ITIL v4 Foundation" onclick="popupImage(myImg2);">
+      <img id="myImg" class="myImg" data-aos="flip-right" src="asset/cert1.jpg" alt="HCL Appreciation Certificate"  onclick="popupImage(myImg);">
+      <img id="myImg1" class="myImg" data-aos="flip-left"src="asset/cert2.jpg" alt="HCL Aprecation Certificate"  onclick="popupImage(myImg1);">
+      <img id="myImg2" class="myImg" data-aos="flip-right" src="asset/e-cert.jpg" alt="ITIL v4 Foundation" onclick="popupImage(myImg2);">
       <!-- The Modal -->
       <div id="myModal" class="modal">
 
@@ -150,11 +150,13 @@
   </div>
 </div>
 
+<hr style="width:250px;">
+
 <!-- My work section strating -->
 
 <div id="mywork" class="text-center section">
   <div class="container">
-    <div class="section-title center">
+    <div class=" center">
       <h2 data-aos="fade-down">My Work</h2>
       <hr>
     </div>
@@ -204,7 +206,7 @@
 <!-- Contact Section -->
 <div id="contact" class="text-center section">
   <div class="container">
-    <div class="section-title center">
+    <div class=" center">
       <h2 data-aos="fade-down">Contact</h2>
       <hr>
     </div>
@@ -276,6 +278,7 @@
 	<script>
   AOS.init();
 
+
     $(function() {
         $('.chart').easyPieChart({
             size:152,
@@ -295,12 +298,12 @@
 
             function popupImage(name){
 
-            name.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
 
-          }}
+            modal.style.display = "block";
+            modalImg.src = name.src;
+            captionText.innerHTML = name.alt;
+
+          }
           // Get the modal
         //  var modal = document.getElementById("myModal");
 
