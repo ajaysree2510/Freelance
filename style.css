@@ -5,6 +5,7 @@ body, html {
 	color: #656c6d;
 	width: 100% !important;
 	height: 100% !important;
+
 }
 
 h1 {
@@ -393,9 +394,8 @@ header .intro-text {
 	padding-bottom: 200px;
 }
 
-@media(min-width:992px) {
 
-}
+
 }
 
 /* Achievement images styling */
@@ -487,5 +487,97 @@ header .intro-text {
 	.close{
 		top:50px;
 		right:10px;
+	}
+}
+
+/* Work Carousel */
+
+.mainCarousel{
+	width: 100vw;
+	margin-left: -20%;height: 100%;
+}
+.carousel-item{
+	border:1px solid rgba(0, 0, 0, 0.07);
+    min-height: 400px;
+}
+
+.carouselLayout{
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: 0 5%;
+	height: 100;
+}
+
+.workImage{
+	flex: 0 1 40%;
+
+}
+
+.workImage img{
+	width: 95%;
+    margin: 30px 0px;
+    height: 85%;
+}
+
+.workDescription{
+
+	
+	flex: 0 1 40%;
+	background-color:#7bc3d1;
+	height: 100%;
+}
+
+.workContent{
+	margin: 75px 40px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.workContent p{
+	text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 100px;
+}
+@media(max-width:768px){
+	.mainCarousel{
+		width: 97vw;
+		margin-left: -3%;
+	}
+
+	.carouselLayout{
+		width: 100%;
+		margin: 0;
+	}
+
+	.workDescription{
+
+	
+		flex: 0 1 100%;
+	}
+
+	.workImage{
+		display: none;
+	}
+
+	.workContent p{
+		margin-right: 0;
+	}
+	.mobile{
+		background-color: whitesmoke; 
+		color: black;
+
+	}
+
+	.workContent{
+		margin: 40px ;
+	}
+
+
+}
+
+@media(max-width:320px){
+	.myImg{
+		margin: 0;
 	}
 }
